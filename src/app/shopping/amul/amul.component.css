@@ -1,0 +1,39 @@
+.brandName{
+  font-weight: bold;
+  font-size: 25px;
+  font-family: serif;
+}
+.productName{
+  font-size: 19px;
+}
+.icon{
+  font-size: 50px;
+  color: rgb(179, 179, 179);
+}
+/* .icon:hover{
+ color:  #0088ff;
+} */
+.icon1{
+  font-size: 50px;
+  color: rgb(179, 179, 179);
+}
+.icon1:hover{
+  color:  #0088ff;
+}
+.countChange{
+  margin-top: 10px;
+  position: relative;
+  right: 40px;
+}
+.col-sm-6{
+  position:relative;
+  width:200px;
+  overflow-x:scroll;
+}
+.green{
+  color: blue;
+}
+.image{
+  width: 337px;
+
+}

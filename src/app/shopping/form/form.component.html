@@ -1,0 +1,89 @@
+<form [formGroup]="signUp" class="mt-3">
+    <div class="form-group">
+        <!-- brand Name-->
+        <div class="row">
+            <div class="col-lg-3">
+              <label class="textColor"><b>Brand Name:</b></label>
+              </div>
+            <div class="col-lg-8 mb-3">
+            <div class="form-group">
+            <input type="text" 
+            class="form-control bg-transparent borderNone" 
+            formControlName="brandName" placeholder="BrandName">
+            <div class="text-danger" 
+            *ngIf="(f.brandName.touched || submitted ) && f.brandName.invalid">
+            <div *ngIf="f.brandName.errors.required">Brand Name is required</div>
+            </div>
+            </div>
+            </div>
+            <div class="col-lg-1"></div>
+            </div>
+
+        <!-- Product Name -->
+    <div class="row">
+        <div class="col-lg-3">
+          <label class="textColor"><b>Product Name:</b></label>
+          </div>
+        <div class="col-lg-8 mb-3">
+        <div class="form-group">
+        <input type="text" 
+        class="form-control bg-transparent borderNone" 
+        formControlName="productName" placeholder="Product Name">
+        <div class="text-danger" 
+        *ngIf="(f.productName.touched || submitted ) && f.productName.invalid">
+        <div *ngIf="f.productName.errors.required">Product Name is required</div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-1"></div>
+        </div>
+    
+          <!-- Description -->
+    <div class="row mt-3">
+        <div class="col-lg-3">
+          <label class="textColor"><b>Description:</b></label>
+        </div>
+        <div class="col-lg-8  mb-3">
+        <div class="form-group">
+        <input type="text" class="form-control bg-transparent borderNone" 
+        formControlName="description" placeholder="Description"
+        >
+        <div class="text-danger" 
+        *ngIf="(f.description.touched || submitted ) && f.description.invalid">
+        <div *ngIf="f.description.errors.required">Description is required</div>
+        <div *ngIf="f.description.errors.minlength">Description is minimum</div>
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-1"></div>
+    
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-lg-3">
+            <label class="textColor"><b>Price:</b></label>
+          </div>
+          <div class="col-lg-8  mb-3">
+          <div class="form-group">
+          <input type="text" class="form-control bg-transparent borderNone" 
+          formControlName="price" placeholder="price"
+          >
+          <div class="text-danger" 
+          *ngIf="(f.price.touched || submitted ) && f.price.invalid">
+          <div *ngIf="f.price.errors.required">Price is required</div>
+          <div *ngIf="f.price.errors.minlength">Price is minimum</div>
+          </div>
+          </div>
+          </div>
+          <div class="col-lg-1"></div>
+      
+          </div>
+          
+   
+<button class="btn btn-primary"
+(click)="submitreactive(signUp.value)"
+>Submit</button>
+    
+    
+    </div>
+    </form>

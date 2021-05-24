@@ -1,0 +1,231 @@
+<!-- <div *ngFor="let x of candidateDummy">
+  <button (click)="minimum(x.price)">
+    minimum
+  </button>
+  {{max}}
+</div> -->
+<!-- <button (click)="minimum()">
+  minimum
+</button>
+{{max}} -->
+
+<!-- <div class="row">
+  <div class="col-lg-2">
+    {{minimumvalues}}
+  </div>
+  <div class="col-lg-8">
+    <input type="range" class="custom-range" 
+    min="0" max="10000" value="price"
+    id="customRange" name="points1"
+    (change)="handleSlideChange($event.target.value)"
+    >
+  </div>
+  <div class="col-lg-1">
+    <button class="btn btn-primary"
+    (click)="buttonclick()"
+    >click</button>
+  </div>
+</div> -->
+<!-- 
+<span>0</span>
+<input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
+<span>100</span> -->
+
+<!-- <ul>
+  <li *ngFor="let joblists of candidateDummy | range: sliderValue">
+    {{joblists.price}}</li>
+</ul> -->
+
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <input type="text" [(ngModel)]="searchKey" class="form-control bg-transparent bordernone"
+    placeholder="Search" (keyup)="search()"><br>
+  </div>
+  <div class="col-lg-2"></div>
+</div>   
+<div class="container background mt-4 mb-4 pb-4"> 
+    
+    <!-- <br>
+    <button class="btn btn-primary" (click)="methodForBrand($event)">
+      Amul
+    </button>
+    <nav>
+      <input type="checkbox" value="productName"
+       (click)="method($event)"> Milk
+      <input type="checkbox" value="productName" 
+      (click)="method1($event)"> Ghee
+    </nav>
+
+    <button class="btn btn-secondary" 
+     (click)="methodForBrandbenz($event)">
+      Benz
+    </button><br>
+    <button class="btn btn-info"  (click)="methodForBrandLouisphilippe($event)">
+      Louis philippe
+        </button>
+    <nav>
+      <input type="checkbox" value="productName" 
+      (click)="methodforLouisphilippeshirt($event)">Shirts
+      <input type="checkbox" value="productName"
+       (click)="methodforLouisphilippepants($event)"> Pants
+      <input type="checkbox" value="productName" 
+      (click)="methodforLouisphilippeblazer($event)"> Blazers & Suits
+
+    </nav> -->
+
+    <!-- <ng-template ngFor let-resource let-last="last" 
+    [ngForOf]=""> 
+      <img [src]="imagePath+resource.iconPath" alt="user" class="img-responsive radius m-r-10" style="width:40px; cursor:default;">
+      <span *ngIf="!last"> &gt;&gt; </span>
+   </ng-template> -->
+
+   <!-- <ng-template ngFor let-item="$implicit" 
+   [ngForOf]="images" let-i="index">
+   <img src="{{item}}">
+   {{i}} {{item}}
+  </ng-template> -->
+ 
+
+    <!-- <div *ngIf="cartes"> -->
+      <div class="card-group" >
+        <div class="col-sm-4  mb-2" *ngFor="let displayDetails of candidateDummy">
+          <div class="card">
+            <!-- <img 
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+            class="card-img-top" alt="..."> -->
+            <img [src]="displayDetails.imagepath" class="image">
+          <div class="card-body">
+            <h5 class="card-title">{{ displayDetails.brandName }}</h5>
+            <p class="card-text">{{ displayDetails.productName }}</p>
+            <p>{{ displayDetails.description }}</p>
+            <p>Rs:{{ displayDetails.price }}</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <!-- <i class="fa fa-thumbs-up" aria-hidden="true"
+ (click)="enableDisableRule()"
+  [ngClass]="{'blue' : toggle, 'red': !toggle}"
+                  ></i> -->
+
+                  <i class="fa fa-thumbs-up"
+                  (click)="enabledisableRule(displayDetails.id)"
+                  ></i>
+                  {{selectedButton[displayDetails.id] ? 'Like' : 'Dislike'}}
+
+
+
+<!--                   [ngClass]="{'blue':selectedButton,'red':!selectedButton}"
+ -->
+                <!-- <button
+  (click)="enableDisableRule()"
+  [ngClass]="{'green' : toggle, 'red': !toggle}"
+>
+  {{status}}
+</button> -->
+              </div>
+              <div class="col-lg-3"></div>
+              <div class="col-lg-3">
+                <!-- <i class="fa fa-heart" aria-hidden="true"
+                (click)="click()"
+                ></i>{{ count }} -->
+                <i class="fa fa-heart" (click)="enabledisableRule1(displayDetails.id)"></i>
+                {{selectedButton1[displayDetails.id] ? '1' : '0'}}
+
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div> 
+    <!-- </div> -->
+
+
+    <!--  *ngIf="i<=3" -->
+    <!-- <div class="row">
+      <div class="col-lg-7">
+        <div class="card-group">
+          <div class="card"
+           *ngFor="let displayDetails of candidateDummy;let index = index">
+            <div class="card-body text-center">
+              <img class="card-img-top" 
+  src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" 
+  alt="image is obtained">
+             <p class="brandName"> {{ displayDetails.brandName }} </p>
+             <p class="productName"><b><em> {{ displayDetails.productName }} </em></b> </p>
+             <p> {{ displayDetails.description }} </p>    
+            <div class="row ">
+              <div class="col-lg-6">
+                <p> <i class="fa fa-thumbs-up icon" aria-hidden="true"
+                  id="addToSummary"
+                     (click)="addToSummary()"       
+                  ></i>
+                
+                </p>   
+              </div>
+              <div class="col-lg-5">
+                <i class="fa fa-heart icon1" aria-hidden="true"
+                (click)="click()"
+                ></i>
+              </div>
+              <div class="col-lg-1 countChange">
+  {{ count }}
+              </div>
+              
+            </div> 
+          </div>
+          </div><br>
+        </div>
+      </div>
+    </div> -->
+
+   <button class="btn btn-primary" (click)='back()'>Back</button>
+
+    
+                  <!-- <button id="addToSummary"
+                   class="mdc-icon-button material-icons"
+                    style="color: #FFFFFF;"
+                      (click)="addToSummary()">grade</button> -->
+              
+
+    <!-- <div class="row">
+        <div class="col-lg-4">
+            <div class="card text-left"
+             *ngFor="let displayDetails of candidate;let RowIndex = index">
+                <img class="card-img-top" 
+                src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="image is obtained">
+                <div class="card-body">
+                  <h4 class="card-title">{{ displayDetails.brandName }}</h4>
+                  {{ displayDetails.productName }}<br>
+                  {{ displayDetails.description }}
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4">
+    
+        </div>
+    </div> -->
+
+    <!-- <ng-container *ngFor="let group of groups;  let i=index">
+  <label class="btn btn-filter" id="bttns">
+         <input type="checkbox" name="customersGroupFilter" autoComplete="off" [value]="group" (change)="changeGroup($event)">
+                   {{ group }}
+  </label>&nbsp;
+</ng-container>
+<pre>You select groups {{ groupValue | json }} </pre>
+<div *ngFor="let user of usersList | checkbox : 'group' : groupValue">{{ user.name }}</div> -->
+
+
+
+<!-- <div *ngFor="let x of candidateDummy">
+  <button (click)="enabledisableRule(x.id)">
+    {{selectedButton[x.id] ? 'Enabled' : 'Disabled'}}
+  </button>
+
+
+
+  Count: <span style="margin-right: 10px">{{x.count}}</span>
+  <button (click)="addCount(x.id)">Add</button>
+
+
+
+</div> -->
