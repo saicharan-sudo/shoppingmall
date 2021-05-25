@@ -1,9 +1,11 @@
 <!-- <div *ngFor="let x of candidateDummy">
-  <button (click)="minimum(x.price)">
+  <button value="{{x.price}}" (click)="minimum($event)">
     minimum
   </button>
   {{max}}
 </div> -->
+
+
 <!-- <button (click)="minimum()">
   minimum
 </button>
@@ -35,11 +37,12 @@
   <li *ngFor="let joblists of candidateDummy | range: sliderValue">
     {{joblists.price}}</li>
 </ul> -->
-
+<br><br>
 <div class="row">
   <div class="col-lg-2"></div>
   <div class="col-lg-8">
-    <input type="text" [(ngModel)]="searchKey" class="form-control bg-transparent bordernone"
+    <input type="text" [(ngModel)]="searchKey" 
+    class="form-control bg-transparent bordernone"
     placeholder="Search" (keyup)="search()"><br>
   </div>
   <div class="col-lg-2"></div>
@@ -85,15 +88,27 @@
    <img src="{{item}}">
    {{i}} {{item}}
   </ng-template> -->
+  <!-- <div *ngFor="let x of candidate">
+    <button type="button" class="btn btn-outline-primary" 
+    value="{{x.price}}"
+    (click)="basicminimum($event)"
+    >minimum</button>
+  </div> -->
+
  
 
+<!-- {{ minimumdefaultvaluesfromthedatabase }} -->
     <!-- <div *ngIf="cartes"> -->
       <div class="card-group" >
-        <div class="col-sm-4  mb-2" *ngFor="let displayDetails of candidateDummy">
+        <div class="col-sm-4  mb-2" 
+        *ngFor="let displayDetails of candidateDummy">
           <div class="card">
             <!-- <img 
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
             class="card-img-top" alt="..."> -->
+            <!-- <img src="./assets/change icon.jpg" style="    width: fit-content;
+            position: absolute;
+            top: -3px;"> -->
             <img [src]="displayDetails.imagepath" class="image">
           <div class="card-body">
             <h5 class="card-title">{{ displayDetails.brandName }}</h5>
@@ -179,7 +194,6 @@
     </div> -->
 
    <button class="btn btn-primary" (click)='back()'>Back</button>
-
     
                   <!-- <button id="addToSummary"
                    class="mdc-icon-button material-icons"
@@ -229,3 +243,5 @@
 
 
 </div> -->
+
+

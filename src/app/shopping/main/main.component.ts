@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { JsonserverService } from '../form/jsonserver.service';
 import { AmulComponent } from '../amul/amul.component';
 declare let $: any;
+import { Options,LabelType } from '@angular-slider/ngx-slider';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-main',
@@ -11,7 +14,13 @@ declare let $: any;
 export class MainComponent implements OnInit {
 
   constructor(private service:JsonserverService) { }
-
+  // value: number = 0;
+  // highValue: number = 20;
+  // options: Options = {
+  //   floor: 0,
+  //   ceil: 10000
+  // };
+ 
   ngOnInit(): void {
     var $filters = $("input:checkbox[name='brand']").prop('checked', true), // start all checked
     $categoryContent = $('#CategoryContent div'),
@@ -41,8 +50,6 @@ private childmethod:AmulComponent
 accessthechildmilk(event:any) {
   this.childview.method(event.target.value)
 }
-
-
 
   candidate:any
   candidateDummy:any
@@ -96,4 +103,43 @@ this.changes=event.target.value
   this.candidateDummy=values
 
 }
+
+// minValue: number = 0;
+// maxValue: number = 10000;
+//   value: number = 0;
+//   highValue: number = 20;
+// options: Options = {
+//   floor: 0,
+//   ceil: 10000,
+//   translate: (value: number, label: LabelType): string => {
+//     switch (label) {
+//       case LabelType.Low:
+//         return "<b>Min price:</b> Rs" + value;
+//       case LabelType.High:
+//         return "<b>Max price:</b> Rs" + value;
+//       default:
+//         return "Rs" + value;
+//     }
+//   }
+// };
+
+SElectTheDate:any=[];
+changedFilterDate(){
+  console.log(this.SElectTheDate);
+let firstSelectedDate=this.SElectTheDate[0]
+let firstSElectedDateConverted=moment(firstSelectedDate)
+console.log(firstSelectedDate);
+let secondSelectedDate=this.SElectTheDate[1]
+// let secondSelectedDateconvert=moment(secondSelectedDate).format('yyy-MM-DD')
+console.log(secondSelectedDate);
+let valuesforFilter=[...this.candidate]
+valuesforFilter=this.candidate.filter((data:any)=>{
+return new Date(data.bookingDetailsList.dayOfOrganization) >= firstSelectedDate
+&&
+new Date(data.bookingDetailsList.dayOfOrganization) <= secondSelectedDate
+})
+this.candidateDummy=valuesforFilter
+}
+sliderValue: number = 0; 
+
 }

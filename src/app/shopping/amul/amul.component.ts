@@ -35,7 +35,17 @@ images = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6dMeoGGYvFpmIs1Mupokb7NDde9x83pmgUCx2xb6AzCwF4Nf']
 
 imageGroups:any
+minimumdefaultvaluesfromthedatabase:any
+basicminimum(event:any){
+  this.minimumdefaultvaluesfromthedatabase=Math.min(event.target.value)
+}
   ngOnInit(): void {
+    var arr = [1,2,3];
+var max = arr.reduce(function(a:any, b:any) {
+    return Math.max(a, b);
+});
+console.log(max);
+
     this.getdetails();
     var $filters = 
     $("input:checkbox[name='brand']").prop('checked', false), // start all checked
@@ -66,7 +76,7 @@ this.imageGroups = this.images.reduce((p:any, c:any, i:any) => {
 }, []);
 }
   
-  candidate:any;
+  candidate:any[];
 candidateDummy:any
 candidateBelowDetails:any
 getdetails(){
@@ -75,6 +85,10 @@ getdetails(){
     this.candidateDummy=data
   })
 }
+
+
+
+
 count=0
 
 click(){
@@ -82,8 +96,8 @@ click(){
 }
 
 max:any
-minimum(){
-this.max=Math.min(this.candidate.price)
+minimum(event:any){
+this.max=Math.min(event.target.value)
 }
 
 addToSummary(){
@@ -259,4 +273,29 @@ toggle = true;
         let idx= this.candidateDummy.findIndex((el:any) => el.id == id);
         this.candidateDummy[idx].count++;
       }
+
+
+      SElectTheDate:any=[];
+      changedFilterDate(event:any){
+        console.log(this.SElectTheDate);
+      let firstSelectedDate=this.SElectTheDate[0]
+      // let firstSElectedDateConverted=moment(firstSelectedDate).format('yyyy-MM-DD')
+      console.log(firstSelectedDate);
+      let secondSelectedDate=this.SElectTheDate[1]
+      // let secondSelectedDateconvert=moment(secondSelectedDate).format('yyy-MM-DD')
+      console.log(secondSelectedDate);
+      // let valuesforFilter=[...this.candidate]
+      // valuesforFilter=this.candidate.filter((data:any)=>{
+      // return new Date(data.bookingDetailsList.dayOfOrganization) >= new Date(firstSElectedDateConverted)
+      // &&
+      // new Date(data.bookingDetailsList.dayOfOrganization) <= new Date(secondSelectedDateconvert)
+      // })
+      // this.candidateDummy=valuesforFilter
+      }
+getrecords(){
+  this.service.getData().subscribe((Data:any)=>{
+    this.candidate=Data
+  })
+}
+
 }

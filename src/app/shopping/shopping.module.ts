@@ -10,6 +10,8 @@ import { AmulComponent } from './amul/amul.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CheckboxPipe } from './checkbox.pipe';
 import { RangePipe } from './amul/range.pipe';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RangePipe } from './amul/range.pipe';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgxSliderModule
   ]
 })
 export class ShoppingModule { }

@@ -51,19 +51,30 @@
             </li> -->
             <!-- <label for="customRange"></label> -->
 <div class="row">
+  <b class="text-center">Filter By Price</b>
   <div class="col-lg-1">
     {{amul.minimumvalues}}
   </div>
   <div class="col-lg-8">
+<!-- true -->
+
     <input type="range" class="custom-range" 
     min="0" max="10000" value="price"
     id="customRange" name="points1"
     (change)="amul.handleSlideChange($event.target.value)"
     style="    margin-left: 20px;"
-    (change)="amul.buttonclick()"
+    (change)="amul.buttonclick()">
 
-    >
 
+<!-- change -->
+
+<!-- <span>0</span>
+<input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
+<span>100</span>
+<ul>
+  <li *ngFor="let joblists of candidate | range: sliderValue">
+    {{joblists.price}}</li>
+</ul> -->
     <!-- <input type="range" min="1" max="50" value="{{ limit }}" 
     class="slider form-control-range"
     (change)="handleSlideChange($event.target.value)"
@@ -199,4 +210,13 @@
  <input type="checkbox" name="brand" value="Brand4">Brand4<br>
 </div>
  -->
- 
+ <!-- <div class="container">
+  <ngx-slider [(value)]="value"
+  [(highValue)]="highValue"
+  [(ngModel)]="SElectTheDate"
+  [options]="options"
+  (click)="changedFilterDate()"
+  ></ngx-slider>
+ </div> -->
+ <!-- <ng5-slider [(value)]="value" [(highValue)]="highValue"
+ [options]="options"></ng5-slider> -->
